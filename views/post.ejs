@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/e0e0d61159.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/post.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="commu_title">
+            커뮤니티 게시판
+        </div>
+    </header>
+
+    <nav>
+        <ul class="nav_title">
+            <li>자유게시판</li>
+            <li>후기게시판</li>
+            <li>00게시판</li>
+        </ul>
+
+        <div class="search_bar">
+            <div class="search_text"><input type="text"></div>
+            <div class="search_icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+        </div>
+    </nav>
+
+    <section>
+        <div class="filter">
+            <ul class="filter_box">
+                <li>최신순</li>
+                <li>인기순</li>
+            </ul>
+            <div class="filter_icon">
+                <i class="fa-solid fa-filter"></i>
+            </div>
+        </div>
+        <%
+        for(var i=0;i<data.length;i++)
+        {
+            var data = data[i];
+            %>
+        <div class="post">
+            <div class="post_head">
+                <div class="post_avatar">
+                    <img src="image/lovedive.png" alt="" width="50px" height="50px">
+
+                    <div class="post_box">
+                        <div class="user_name">
+                            <%=data.user_id%>
+                        </div>
+                        <div class="comu_name">
+                            후기게시판
+                        </div>
+                    </div>
+                </div>
+                <div class="post_time">
+                    <%=data.regdate%>
+                </div>
+            </div>
+
+            <div class="post_body">
+                <div class="post_title">
+                    <%=data.title%>
+                </div>
+                <div class="post_text">
+                <%=data.content%>  
+                </div>
+            </div>
+            <div class="post_bottom">
+                <ul class="post_view">
+                    <li>좋아요 123</li>
+                    <li>댓글 131</li>
+                    <li>조회수 <%=data.viewc%></li>
+                </ul>
+                <div class="post_btn">
+                    <div class="comment">
+                        <i class="fa-solid fa-comment-dots"></i>
+                    </div>
+                    <div class="like">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%}%>
+      
+
+
+    </section>
+
+
+    <div class="bottom_navbar">
+        <div id="buttonBox"><button onclick="location.href='post2_insert2'">글쓰기</button></div>
+        <ul>
+            <li><i class="fa-solid fa-house"></i></li>
+            <li><i class="fa-solid fa-rectangle-list"></i></li>
+            <li><i class="fa-solid fa-music"></i></li>
+            <li><i class="fa-solid fa-comment"></i></i>
+            <li><i class="fa-solid fa-user"></i></li>
+        </ul>
+    </div>
+
+</body>
+</html>

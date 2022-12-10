@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/e0e0d61159.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/post2.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="commu_title">
+            커뮤니티 게시판
+        </div>
+    </header>
+
+    <nav>
+        <ul class="nav_title">
+            <li>자유게시판</li>
+            <li>후기게시판</li>
+            <li>00게시판</li>
+        </ul>
+
+        <ul class="sub_menu">
+            <li>질문</li>
+            <li>시사</li>
+            <li>비밀</li>
+            <li>정보</li>
+            <li>홍보</li>
+            <li>진로</li>
+        </ul>
+
+        <div class="search_and_filter">
+            <ul class="filter_name">
+                <li>최신순</li>
+                <li>인기순</li>
+            </ul>
+
+            <div class="search_bar">
+                <div class="search_text">
+                    <input type="text">
+                </div>
+                <div class="search_icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section>
+        
+    <% for(let Board of data) { %>
+            
+        <div class="post">
+            
+            <div class="post_head">
+                <div class="post_title"> <a href="/postView/<%=Board.idx%>"><%=Board.title%></a></div>
+                <div class="post_time">10분전</div>
+            </div>
+  
+            <div class="post_body">
+                <%=Board.content%>
+            </div>
+           
+            <div class="post_button">
+                <ul class="post_view">
+                    <li>좋아요 123</li>
+                    <li>댓글 131</li>
+                    <li>조회수 </li>
+                </ul>
+            
+                <div class="post_btn">
+                    <div class="comment">
+                        <i class="fa-solid fa-comment-dots"></i>
+                    </div>
+                    <div class="like">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                </div>
+            </div>
+        </div>   
+   
+    </section>
+    <%}%>
+
+
+    <div class="bottom_navbar">
+        <div id="buttonBox"><button onclick="location.href='post2_insert'">글쓰기</button></div>
+        <ul>
+            <li><i class="fa-solid fa-house"></i></li>
+            <li><i class="fa-solid fa-rectangle-list"></i></li>
+            <li><i class="fa-solid fa-music"></i></li>
+            <li><i class="fa-solid fa-comment"></i></i>
+            <li><i class="fa-solid fa-user"></i></li>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/e0e0d61159.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/post.css">
+    <title></title>
+</head>
+<body>
+    <header>
+        <div class="commu_title">
+            커뮤니티 게시판
+        </div>
+    </header>
+
+    <section>
+        <form action="/board/update" method="post">
+                <input type="hidden" name="idx" id="idx" value="<%=board.idx%>"/>
+                <div class="postTitle">
+                    <%=board.title%>
+                </div>    
+        <div class="user">
+            <div class="userInfo">
+                <div class="userImg">
+                    <img src="/public/image/lovedive.png" alt="">
+                </div>
+                <div>
+                    <div class="userId"><%=board.userid%></div>
+                    <div class="postTime">2022.07.19  22:00</div>
+                </div>
+                 
+            <button type = "submit" class="postDel">글삭제</button>
+
+        </div>
+
+        <hr>
+    
+        <div class="userPost">
+            <%=board.content%>
+            </div>
+
+        <hr>
+    </form>
+        <div class="commentCnt">
+        
+        <form method="post" action="/comment/<%=board.idx%>"  class="commentWrite">
+            <label>댓글</label>
+            <input type = "text" id = "id" name="replywriter"  class="commentArea">
+            <input type="textarea"  class="commentArea" name="replycontent" id="content" placeholder="댓글을 입력하세요"></input>
+            <button class="commentBtn" type="submit">댓글<br>등록</button>
+        </form>
+    </div>
+    <% if(board.replies){
+        for(let reply of baord.replies){ %>
+        <div class="commentBox">
+            <div class="comenttUser">
+                <div class="user">
+                    <div class="userImg2"><img src="lovedive.png" alt=""></div>
+                    <div class="userId"><%=reply.dataValues.writer%></div>
+                </div>
+    
+                <div class="commentView">
+                    <%=reply.dataValues.text%>
+                </div>
+                <% } %>
+                    <%}%>
+            </div>
+  </div>
+
+    </section>
+
+
+    <div  class="bottom_navbar">
+        <ul>
+            <li><i class="fa-solid fa-house"></i></li>
+            <li><i class="fa-solid fa-rectangle-list"></i></li>
+            <li><i class="fa-solid fa-music"></i></li>
+            <li><i class="fa-solid fa-comment"></i></i>
+            <li><i class="fa-solid fa-user"></i></li>
+        </ul>
+    </div>
+
+
+</body>
+</html>

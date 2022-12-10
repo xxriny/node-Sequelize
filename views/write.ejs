@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://kit.fontawesome.com/e0e0d61159.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/post.css">
+
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="commu_title">
+            게시판글쓰기
+        </div>
+    </header>
+
+    <section>
+        <form  class="postForm" method="post" action="/write">
+            <select class="postSelect" name="" id="">
+                <option value="">게시판을 선택하세요.</option>
+                <option value="">자유게시판</option>
+                <option value="">후기게시판</option>
+                <option value="">00게시판</option>
+            </select>
+
+
+            제목<input type="text" name="id" id="id" class="postTitle">
+            아이디<input type="text" name="title" id="title"  class="postTitle">
+            내용<input type="text" name="content" id="content" class="postContent">
+
+            <v-file-input class="input" type="file" counter show-size label="이미지 제출(여러개 가능)"
+        outlined dense multiple prepend-icon="mdi-camera" style="width: 400px; margin-left: 100px;"
+        @change="onImageChange"/>
+        
+ 
+
+            <div class="btnBox">
+                <div>     
+                    <v-img v-for="(item,i) in uploadimageurl" :key="i" :src="item.url"
+                    contain height="150px" width="200px" style="border: 2px solid black; margin-left:100px;"/> 
+                  
+                    <input type="file" id="chooseFile" name="chooseFile" accept="image/*" onchange="loadFile(this)">
+                </div>
+                <div>
+                    <button class="cancleBtn">취소</button>
+                    <button type="submit" class="uploadBtn">등록</button>
+                </div>
+                
+            </div>
+
+            </div>
+        
+     
+        </form>
+    </section>
+    
+</body>
+</html>
